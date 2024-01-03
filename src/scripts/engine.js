@@ -1,4 +1,4 @@
-let cartasAbertas
+
 //musica de fundo
 let bgMusic = document.querySelector('audio');
 bgMusic.volume = 0.3;
@@ -41,7 +41,7 @@ for (let i = 0; i < cartas.length; i++) {
 function handleClick() {
   
   
-  
+//corrige bug  clicar duas vezes mesma carta 
   if (openCards.length < 2 && this.classList.length<2) {
     this.classList.add("boxOpen");
     openCards.push(this);
