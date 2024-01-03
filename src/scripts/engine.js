@@ -1,4 +1,4 @@
-
+let cartasAbertas
 //musica de fundo
 let bgMusic = document.querySelector('audio');
 bgMusic.volume = 0.3;
@@ -22,11 +22,13 @@ const atores =[
   'tera',
   'unicorn'
 ];
+//duplica lista de atores
 const embaralharAtores = [... atores , ...atores];
-const cartas = embaralharAtores.sort(()=> Math.random()- 0.5);
-
+//embaralha ordem dos personagens
+const cartas = embaralharAtores.sort(()=> Math.random() - 0.5);
+//salva cartas clicadas
 let openCards = [];
-
+//adiciona as cartas dinamicamente no html
 for (let i = 0; i < cartas.length; i++) {
   let box = document.createElement("div");
   box.className = "item";
@@ -37,16 +39,20 @@ for (let i = 0; i < cartas.length; i++) {
 
 //verifica quantidade de cartas abertas
 function handleClick() {
-  if (openCards.length < 2) {
+  
+  
+  
+  if (openCards.length < 2 && this.classList.length<2) {
     this.classList.add("boxOpen");
     openCards.push(this);
+    corvo.play();
+    
+    
   }
 
   if (openCards.length == 2) {
     setTimeout(checkMatch, 500);
   }
-  corvo.play();
-  
 }
 
 //verifica se cartas tem mesmo valor
@@ -70,4 +76,5 @@ function checkMatch() {
     textoVitoria.innerHTML = "Você venceu! Parabéns!";
   }
 }
+
 
